@@ -1,0 +1,64 @@
+---
+export const prerender = true
+
+import Layout, { type SEOProps } from '~/layouts/Layout.astro'
+import { createWebPageSchema } from '~/utils/schema'
+
+const services = [
+  {
+    title: 'Affiliate Marketing',
+    description: 'Build and scale high-quality affiliate partnerships to improve traffic volume, audience fit, and long-term acquisition performance.',
+  },
+  {
+    title: 'Media Buying',
+    description: 'Plan and optimize paid media campaigns with clear KPI ownership across channels, creatives, and audience segments.',
+  },
+  {
+    title: 'User Acquisition Tooling',
+    description: 'Support implementation and optimization of acquisition tools to improve campaign tracking, conversion, and retention workflows.',
+  },
+  {
+    title: 'SaaS and B2B Marketing Support',
+    description: 'Extend performance thinking to SaaS, payments, and related B2B solutions connected to the iGaming ecosystem.',
+  },
+]
+
+const seo: SEOProps = {
+  title: 'iGaming Marketing Services in Europe | MediaPath EU',
+  description:
+    'Discover MediaPath EU services: affiliate marketing, media buying, user acquisition tooling, and B2B growth support for iGaming-focused businesses.',
+  keywords: 'igaming services, affiliate marketing agency, media buying europe, user acquisition tools',
+  canonical: `${Astro.site}services/`,
+  image: `${Astro.site}images/mediapath-og.webp`,
+  ldJSON: createWebPageSchema({
+    name: 'MediaPath EU Services',
+    url: `${Astro.site}services/`,
+    description:
+      'Affiliate marketing, media buying, user acquisition tooling, and B2B growth support for iGaming-focused businesses.',
+    image: `${Astro.site}images/mediapath-og.webp`,
+  }),
+}
+---
+
+<Layout seo={seo}>
+  <section class="mx-auto max-w-6xl px-4 py-16" id="services">
+    <h1 class="text-4xl font-black tracking-tight text-slate-900">Services for iGaming Growth</h1>
+    <p class="mt-4 max-w-3xl text-lg text-slate-700">
+      We provide practical, performance-oriented services designed to help iGaming teams acquire quality users, optimize spend, and scale sustainably.
+    </p>
+    <p class="mt-3 max-w-3xl text-slate-700">
+      Each engagement can be tailored to your current growth stage, internal capabilities, and target geographies, with clear delivery priorities and outcome tracking.
+    </p>
+
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+      {
+        services.map((service) => (
+          <article class="rounded-xl border border-slate-200 bg-white p-6">
+            <h2 class="text-xl font-bold text-slate-900">{service.title}</h2>
+            <p class="mt-3 text-slate-700">{service.description}</p>
+          </article>
+        ))
+      }
+    </div>
+  </section>
+</Layout>

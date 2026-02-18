@@ -1,0 +1,65 @@
+---
+import type { JsonLdSchema } from '~/utils/schema'
+
+export interface SEOProps {
+  title?: string
+  description?: string
+  image?: string
+  canonical?: string
+  author?: string
+  keywords?: string
+  ldJSON?: JsonLdSchema
+  ogType?: 'website' | 'article'
+  publishedTime?: string
+  modifiedTime?: string
+  section?: string
+  tags?: string[]
+  noIndex?: boolean
+}
+
+export interface LayoutProps {
+  title?: string
+  ogImage?: string
+  description?: string
+  seo?: SEOProps
+}
+
+const {
+  title,
+  ogImage,
+  description = 'MediaPath EU helps iGaming teams scale user acquisition with affiliate marketing, media buying, and growth-focused campaign execution.',
+  seo = {},
+}: LayoutProps = Astro.props
+
+import '../styles/global.css'
+import SEO from '~/components/SEO.astro'
+import Header from '~/components/Header.astro'
+import Footer from '~/components/Footer.astro'
+
+const seoProps: SEOProps = {
+  title: seo.title || title || 'iGaming User Acquisition Agency in Europe | MediaPath EU',
+  description: seo.description || description,
+  image: seo.image || ogImage,
+  ...seo,
+}
+---
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <SEO {...seoProps} />
+  </head>
+  <body class="bg-slate-50 text-slate-900 antialiased">
+    <a
+      href="#main-content"
+      class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-black focus:px-4 focus:py-2 focus:text-white"
+    >
+      Skip to main content
+    </a>
+    <Header />
+    <main id="main-content" class="min-h-[60vh]">
+      <slot />
+    </main>
+    <Footer />
+  </body>
+</html>

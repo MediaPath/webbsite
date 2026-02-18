@@ -1,0 +1,58 @@
+---
+export const prerender = true
+
+import { getCollection } from 'astro:content'
+import Layout, { type SEOProps } from '~/layouts/Layout.astro'
+import { createWebPageSchema } from '~/utils/schema'
+
+const posts = (await getCollection('article'))
+  .filter((post) => post.data.published !== false)
+  .sort((a, b) => {
+    const dateA = (a.data.pubDate || new Date(0)).valueOf()
+    const dateB = (b.data.pubDate || new Date(0)).valueOf()
+    return dateB - dateA
+  })
+
+const seo: SEOProps = {
+  title: 'iGaming Strategy Articles and Case Content | MediaPath',
+  description:
+    'Browse MediaPath EU articles on user acquisition strategy, campaign optimization, affiliate channels, and practical growth frameworks for iGaming teams.',
+  canonical: `${Astro.site}articles/`,
+  keywords: 'igaming strategy articles, user acquisition framework, campaign optimization',
+  image: `${Astro.site}images/mediapath-og.webp`,
+  ldJSON: createWebPageSchema({
+    name: 'MediaPath EU Articles',
+    url: `${Astro.site}articles/`,
+    description: 'Articles on user acquisition strategy, campaign optimization, affiliate channels, and growth frameworks for iGaming teams.',
+    image: `${Astro.site}images/mediapath-og.webp`,
+  }),
+}
+---
+
+<Layout seo={seo}>
+  <section class="mx-auto max-w-4xl px-4 py-16">
+    <h1 class="text-4xl font-black tracking-tight text-slate-900">iGaming Strategy Articles</h1>
+    <p class="mt-3 text-lg text-slate-700">Add feature articles to `src/content/article/` to populate this library.</p>
+    <p class="mt-3 text-slate-700">
+      This archive is ideal for evergreen strategy content, process breakdowns, and editorial pieces that support leadership teams with better growth decisions.
+    </p>
+
+    {
+      posts.length === 0 ? (
+        <div class="mt-10 rounded-xl border border-dashed border-slate-300 bg-white p-8">
+          <h2 class="text-xl font-bold text-slate-900">No articles yet</h2>
+          <p class="mt-2 text-sm text-slate-600">Create your first markdown file in `src/content/article/` and it will appear here automatically.</p>
+        </div>
+      ) : (
+        <ul class="mt-10 space-y-4">
+          {posts.map((post) => (
+            <li class="rounded-xl border border-slate-200 bg-white p-6">
+              <a href={`/articles/${post.slug}/`} class="text-xl font-bold text-slate-900 hover:underline">{post.data.title}</a>
+              <p class="mt-2 text-sm text-slate-600">{post.data.description}</p>
+            </li>
+          ))}
+        </ul>
+      )
+    }
+  </section>
+</Layout>

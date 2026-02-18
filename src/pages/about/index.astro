@@ -1,0 +1,53 @@
+---
+export const prerender = true
+
+import Layout, { type SEOProps } from '~/layouts/Layout.astro'
+import { createWebPageSchema } from '~/utils/schema'
+
+const seo: SEOProps = {
+  title: 'About iGaming Growth Consultancy in Europe | MediaPath',
+  description:
+    'Learn how MediaPath EU supports iGaming businesses with user acquisition strategy, execution, and performance-focused marketing support across Europe.',
+  keywords: 'about mediapath, igaming consultancy europe, user acquisition experts',
+  canonical: `${Astro.site}about/`,
+  image: `${Astro.site}images/mediapath-og.webp`,
+  ldJSON: createWebPageSchema({
+    name: 'About MediaPath EU',
+    url: `${Astro.site}about/`,
+    description:
+      'MediaPath EU supports iGaming businesses with user acquisition strategy, execution, and performance-focused marketing support across Europe.',
+    image: `${Astro.site}images/mediapath-og.webp`,
+  }),
+}
+---
+
+<Layout seo={seo}>
+  <section class="mx-auto max-w-4xl px-4 py-16">
+    <h1 class="text-4xl font-black tracking-tight text-slate-900">About MediaPath EU</h1>
+    <p class="mt-4 text-lg text-slate-700">
+      MediaPath EU is an iGaming-focused growth partner. We bring together strategic planning, hands-on campaign execution, and ongoing optimization to help
+      teams scale efficiently.
+    </p>
+    <p class="mt-4 text-slate-700">
+      Our work is designed for teams that need clarity on where to invest, how to improve acquisition quality, and how to align marketing activity with commercial
+      objectives. We prioritize practical execution, transparent reporting, and iterative performance improvements.
+    </p>
+    <p class="mt-4 text-slate-700">
+      We support growth leaders with channel planning, campaign operations, and decision support so marketing programs remain scalable as competition and customer
+      behavior evolve.
+    </p>
+
+    <div class="mt-10 grid gap-6 md:grid-cols-2">
+      <article class="rounded-xl border border-slate-200 bg-white p-6">
+        <h2 class="text-xl font-bold text-slate-900">Mission</h2>
+        <p class="mt-2 text-slate-700">Deliver measurable, sustainable user acquisition outcomes for iGaming companies operating in competitive European markets.</p>
+      </article>
+      <article class="rounded-xl border border-slate-200 bg-white p-6">
+        <h2 class="text-xl font-bold text-slate-900">Specialization</h2>
+        <p class="mt-2 text-slate-700">
+          Affiliate marketing, media buying, and acquisition tooling aligned to operator goals, regulatory awareness, and long-term channel performance.
+        </p>
+      </article>
+    </div>
+  </section>
+</Layout>

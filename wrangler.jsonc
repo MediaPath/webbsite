@@ -1,0 +1,13 @@
+{
+  "name": "mediapath-eu-site",
+  "main": "dist/_worker.js/index.js",
+  "compatibility_date": "2025-06-17",
+  "compatibility_flags": ["nodejs_compat"],
+  "observability": {
+    "enabled": true
+  },
+  "assets": {
+    "directory": "./dist",
+    "binding": "ASSETS"
+  }
+}
