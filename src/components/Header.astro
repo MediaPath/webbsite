@@ -1,0 +1,81 @@
+---
+const navLinks = [
+  { text: 'About', url: '/about/' },
+  { text: 'Services', url: '/services/' },
+  { text: 'Articles', url: '/articles/' },
+  { text: 'Blog', url: '/blog/' },
+]
+---
+
+<header class="sticky top-0 z-40 border-b border-slate-200/80 bg-white/90 backdrop-blur">
+  <div class="mx-auto flex max-w-7xl items-center justify-between px-4 py-3">
+    <a href="/" class="flex items-center gap-3" aria-label="MediaPath EU home">
+      <img
+        src="/images/mediapath-logo.webp"
+        alt="MediaPath EU logo"
+        width="62"
+        height="49"
+        class="h-10 w-auto rounded-md border border-slate-200 bg-white object-cover"
+        decoding="async"
+      />
+      <span class="leading-tight">
+        <span class="block text-sm font-extrabold tracking-tight text-slate-900 md:text-base">MediaPath EU</span>
+        <span class="hidden text-xs font-medium text-slate-600 sm:block">Digital Marketing for iGaming Growth</span>
+      </span>
+    </a>
+
+    <nav class="hidden items-center gap-6 md:flex" aria-label="Primary">
+      {
+        navLinks.map((link) => (
+          <a href={link.url} class="text-sm font-semibold text-slate-700 transition-colors hover:text-slate-900">
+            {link.text}
+          </a>
+        ))
+      }
+      <a href="/services/" class="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white hover:bg-slate-950">Start Campaign</a>
+    </nav>
+
+    <button
+      id="mobile-menu-button"
+      type="button"
+      class="rounded border border-slate-300 px-3 py-1 text-sm font-semibold text-slate-700 md:hidden"
+      aria-label="Toggle navigation menu"
+      aria-expanded="false"
+      aria-haspopup="true"
+    >
+      Menu
+    </button>
+  </div>
+
+  <nav id="mobile-menu" class="hidden border-t border-slate-200 bg-white px-4 py-4 md:hidden" aria-label="Mobile primary">
+    <ul class="flex flex-col gap-3">
+      {
+        navLinks.map((link) => (
+          <li>
+            <a href={link.url} class="block rounded px-2 py-1 text-sm font-semibold text-slate-700 transition-colors hover:bg-slate-100 hover:text-slate-900">
+              {link.text}
+            </a>
+          </li>
+        ))
+      }
+      <li>
+        <a href="/services/" class="block rounded bg-slate-900 px-3 py-2 text-center text-sm font-semibold text-white hover:bg-slate-950">Start Campaign</a>
+      </li>
+    </ul>
+  </nav>
+</header>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const button = document.getElementById('mobile-menu-button')
+    const menu = document.getElementById('mobile-menu')
+
+    if (!button || !menu) return
+
+    button.addEventListener('click', () => {
+      const isOpen = !menu.classList.contains('hidden')
+      menu.classList.toggle('hidden', isOpen)
+      button.setAttribute('aria-expanded', String(!isOpen))
+    })
+  })
+</script>

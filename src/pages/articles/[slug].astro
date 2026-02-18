@@ -1,0 +1,80 @@
+---
+import { getCollection } from 'astro:content'
+import Layout, { type SEOProps } from '~/layouts/Layout.astro'
+import { createArticleSchema } from '~/utils/schema'
+
+export const prerender = true
+
+export async function getStaticPaths() {
+  const posts = await getCollection('article')
+  return posts
+    .filter((post) => post.data.published !== false)
+    .map((post) => ({
+      params: { slug: post.slug },
+      props: post,
+    }))
+}
+
+const post = Astro.props
+const { Content } = await post.render()
+
+const socialImage = post.data.heroImage
+  ? post.data.heroImage.startsWith('http')
+    ? post.data.heroImage
+    : `${Astro.site}${post.data.heroImage.replace(/^\//, '')}`
+  : `${Astro.site}images/mediapath-og.webp`
+
+const seo: SEOProps = {
+  title: `${post.data.title} | MediaPath Articles`,
+  description: post.data.description,
+  canonical: `${Astro.site}articles/${post.slug}/`,
+  image: socialImage,
+  ogType: 'article',
+  publishedTime: post.data.pubDate?.toISOString(),
+  modifiedTime: post.data.updatedDate?.toISOString(),
+  author: post.data.author || 'MediaPath EU',
+  keywords: post.data.keywords || 'igaming strategy, user acquisition, affiliate marketing',
+  ldJSON: createArticleSchema({
+    headline: post.data.title,
+    description: post.data.description,
+    image: socialImage,
+    url: `${Astro.site}articles/${post.slug}/`,
+    datePublished: post.data.pubDate?.toISOString(),
+    dateModified: post.data.updatedDate?.toISOString(),
+    author: {
+      name: post.data.author || 'MediaPath EU',
+      ...(post.data.authorUrl && { url: post.data.authorUrl }),
+    },
+  }),
+}
+---
+
+<Layout seo={seo}>
+  <article class="mx-auto max-w-3xl px-4 py-14">
+    <header class="mb-8 border-b border-gray-200 pb-6">
+      <h1 class="text-4xl font-black tracking-tight text-gray-900">{post.data.title}</h1>
+      {post.data.description && <p class="mt-4 text-lg text-gray-700">{post.data.description}</p>}
+      <div class="mt-4 text-sm text-gray-500">
+        {post.data.pubDate && (
+          <time datetime={post.data.pubDate.toISOString()}>
+            {post.data.pubDate.toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' })}
+          </time>
+        )}
+      </div>
+    </header>
+
+    {post.data.heroImage && (
+      <img
+        src={post.data.heroImage}
+        alt={post.data.heroImageAlt || post.data.title}
+        class="mb-8 h-auto w-full rounded-xl border border-gray-200"
+        loading="eager"
+        decoding="async"
+      />
+    )}
+
+    <div class="prose prose-lg max-w-none prose-headings:text-gray-900 prose-p:text-gray-800 prose-a:text-gray-900">
+      <Content />
+    </div>
+  </article>
+</Layout>

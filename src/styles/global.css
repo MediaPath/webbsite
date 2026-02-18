@@ -1,0 +1,67 @@
+@import 'tailwindcss';
+@plugin "@tailwindcss/typography";
+
+:root {
+  --mediapath-ink: #020617;
+  --mediapath-surface: #f8fafc;
+  --mediapath-cyan: #67e8f9;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-fade-in-up {
+  animation: fadeInUp 0.8s ease-out;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.8s ease-out;
+}
+
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f1f5f9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(103, 232, 249, 0.12), transparent 35%),
+    radial-gradient(circle at 0% 100%, rgba(14, 165, 233, 0.08), transparent 30%),
+    var(--mediapath-surface);
+  color: var(--mediapath-ink);
+  font-family: "Avenir Next", "Montserrat", "Segoe UI", sans-serif;
+  line-height: 1.6;
+}

@@ -1,0 +1,26 @@
+name: IndexNow
+
+on:
+  schedule:
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+
+jobs:
+  submit-indexnow:
+    if: ${{ secrets.INDEXNOW_KEY != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit sitemap to IndexNow
+        uses: bojieyang/indexnow-action@v2
+        with:
+          sitemap-location: ${{ vars.SITEMAP_URL || 'https://mediapath.eu/sitemap-index.xml' }}
+          key: ${{ secrets.INDEXNOW_KEY }}
+
+  submit-google-indexing:
+    if: ${{ secrets.GCP_SA_KEY != '' && vars.GOOGLE_SITE_URL != '' }}
+    runs-on: ubuntu-latest
+    steps:
+      - uses: robingenz/action-google-indexing@v1.0.2
+        with:
+          siteUrl: ${{ vars.GOOGLE_SITE_URL }}
+          gcpServiceAccountKey: ${{ secrets.GCP_SA_KEY }}
