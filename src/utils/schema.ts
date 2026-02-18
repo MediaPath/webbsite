@@ -14,7 +14,7 @@ import type {
   WithContext,
 } from 'schema-dts'
 
-const SITE_URL = 'https://mediapatheu.wordpress.com/'
+const SITE_URL = 'https://mediapath.eu/'
 const SITE_NAME = 'MediaPath EU'
 const LOGO_URL = `${SITE_URL}images/mediapath-logo.webp`
 

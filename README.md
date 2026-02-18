@@ -4,7 +4,7 @@ This project is an Astro + Tailwind website template prepared for MediaPath EU c
 
 ## Current Scope
 
-- MediaPath EU homepage content based on `mediapatheu.wordpress.com`
+- MediaPath EU homepage content based on `mediapath.eu`
 - Core pages:
   - `/`
   - `/about/`

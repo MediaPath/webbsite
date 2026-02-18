@@ -5,7 +5,7 @@ import { defineConfig } from 'astro/config'
 import { glob } from 'glob'
 import { readFileSync, statSync } from 'node:fs'
 
-const site = process.env.SITE_URL ?? 'https://mediapatheu.wordpress.com/'
+const site = process.env.SITE_URL ?? 'https://mediapath.eu/'
 
 function getPageLastModDates() {
   const lastModMap = new Map()
