@@ -35,6 +35,7 @@ import '../styles/global.css'
 import SEO from '~/components/SEO.astro'
 import Header from '~/components/Header.astro'
 import Footer from '~/components/Footer.astro'
+import StickyBar from '~/components/StickyBar.astro'
 
 const seoProps: SEOProps = {
   title: seo.title || title || 'iGaming User Acquisition Agency in Europe | MediaPath EU',
@@ -49,7 +50,7 @@ const seoProps: SEOProps = {
   <head>
     <SEO {...seoProps} />
   </head>
-  <body class="bg-slate-50 text-slate-900 antialiased">
+  <body class="bg-slate-50 pb-24 text-slate-900 antialiased">
     <a
       href="#main-content"
       class="sr-only focus:not-sr-only focus:absolute focus:left-4 focus:top-4 focus:z-50 focus:rounded focus:bg-black focus:px-4 focus:py-2 focus:text-white"
@@ -60,6 +61,7 @@ const seoProps: SEOProps = {
     <main id="main-content" class="min-h-[60vh]">
       <slot />
     </main>
+    <StickyBar />
     <Footer />
   </body>
 </html>

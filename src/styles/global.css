@@ -1,6 +1,12 @@
 @import 'tailwindcss';
 @plugin "@tailwindcss/typography";
 
+:root {
+  --mediapath-ink: #020617;
+  --mediapath-surface: #f8fafc;
+  --mediapath-cyan: #67e8f9;
+}
+
 @keyframes fadeInUp {
   from {
     opacity: 0;
@@ -51,5 +57,11 @@ html {
 }
 
 body {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(103, 232, 249, 0.12), transparent 35%),
+    radial-gradient(circle at 0% 100%, rgba(14, 165, 233, 0.08), transparent 30%),
+    var(--mediapath-surface);
+  color: var(--mediapath-ink);
+  font-family: "Avenir Next", "Montserrat", "Segoe UI", sans-serif;
   line-height: 1.6;
 }

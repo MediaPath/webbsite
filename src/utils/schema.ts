@@ -16,7 +16,7 @@ import type {
 
 const SITE_URL = 'https://mediapatheu.wordpress.com/'
 const SITE_NAME = 'MediaPath EU'
-const LOGO_URL = `${SITE_URL}logo.svg`
+const LOGO_URL = `${SITE_URL}images/mediapath-logo.webp`
 
 export const ensureTrailingSlash = (urlString: string | URL): string => {
   const str = urlString.toString()

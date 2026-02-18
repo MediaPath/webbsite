@@ -1,6 +1,6 @@
 # MediaPath EU Astro Website
 
-This project is an Astro + Tailwind website template cleaned from the Nomad source and repurposed for MediaPath EU content.
+This project is an Astro + Tailwind website template prepared for MediaPath EU content.
 
 ## Current Scope
 

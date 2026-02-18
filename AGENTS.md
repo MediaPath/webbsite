@@ -1,4 +1,4 @@
-# Agent Coding Rules for Nomad Magazine Website
+# Agent Coding Rules for MediaPath EU Website
 
 ## Priority: SEO and Performance First
 
@@ -203,7 +203,7 @@ This website's primary goal is to rank highly in search engines and attract clie
 
 ### iframes
 - **ALWAYS** add a descriptive `title` attribute to iframes
-- Example: `<iframe title="Nomad Magazine Digital Flipbook Viewer" ...>`
+- Example: `<iframe title="MediaPath EU content viewer" ...>`
 
 ### General
 - Maintain proper color contrast ratios (4.5:1 for normal text, 3:1 for large text)
@@ -407,4 +407,3 @@ Before considering any work complete, verify:
 ## Summary
 
 **Remember**: This website's success depends on SEO ranking and performance. Every change should be evaluated through this lens. When in doubt, prioritize SEO best practices, performance optimization, accessibility, and mobile experience.
-

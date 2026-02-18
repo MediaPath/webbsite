@@ -3,7 +3,7 @@
   "configVersion": 0,
   "workspaces": {
     "": {
-      "name": "nomad-magazine",
+      "name": "mediapath-eu-site",
       "dependencies": {
         "@astrojs/cloudflare": "12.6.12",
         "@astrojs/sitemap": "^3.6.0",
