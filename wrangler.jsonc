@@ -3,6 +3,11 @@
   "main": "dist/_worker.js/index.js",
   "compatibility_date": "2025-06-17",
   "compatibility_flags": ["nodejs_compat"],
+  "workers_dev": false,
+  "routes": [
+    { "pattern": "mediapath.eu/*", "zone_name": "mediapath.eu" },
+    { "pattern": "www.mediapath.eu/*", "zone_name": "mediapath.eu" }
+  ],
   "observability": {
     "enabled": true
   },
