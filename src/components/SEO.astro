@@ -22,14 +22,17 @@ interface Props {
 const defaultTitle = 'iGaming User Acquisition Agency in Europe | MediaPath EU'
 const defaultDescription =
   'MediaPath EU helps iGaming brands scale with affiliate marketing, media buying, and acquisition tools built for sustainable user growth in Europe.'
-const defaultImage = `${Astro.site}images/mediapath-og.webp`
+const baseOrigin = (Astro.site?.toString() ?? Astro.url.origin).replace(/\/$/, '')
+const defaultPath = ensureTrailingSlash(Astro.url.pathname)
+const defaultUrl = `${baseOrigin}${defaultPath}`
+const defaultImage = `${baseOrigin}/images/mediapath-og.webp`
 
 const {
   title = defaultTitle,
   description = defaultDescription,
-  url = Astro.url,
+  url = defaultUrl,
   image = defaultImage,
-  canonical = Astro.url,
+  canonical = defaultUrl,
   author = 'MediaPath EU',
   keywords = 'igaming marketing, user acquisition, affiliate marketing, media buying, mediapath eu',
   audio = null,

@@ -19,9 +19,23 @@ const SITE_NAME = 'MediaPath EU'
 const LOGO_URL = `${SITE_URL}images/mediapath-logo.webp`
 
 export const ensureTrailingSlash = (urlString: string | URL): string => {
-  const str = urlString.toString()
-  if (/\.[a-zA-Z0-9]+$/.test(str)) return str
-  return str.endsWith('/') ? str : `${str}/`
+  const raw = urlString.toString()
+  const input = urlString instanceof URL ? raw : raw.trim()
+  if (!input) return '/'
+
+  const isAbsoluteUrl = /^[a-zA-Z][a-zA-Z\d+\-.]*:\/\//.test(input)
+  const url = isAbsoluteUrl ? new URL(input) : new URL(input, 'https://example.com')
+  const { pathname } = url
+
+  if (!/\.[a-zA-Z0-9]+$/.test(pathname) && !pathname.endsWith('/')) {
+    url.pathname = `${pathname}/`
+  }
+
+  if (isAbsoluteUrl) {
+    return url.toString()
+  }
+
+  return `${url.pathname}${url.search}${url.hash}`
 }
 
 export const defaultOrganization: Organization = {
