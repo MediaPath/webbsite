@@ -7,20 +7,44 @@ on:
 
 jobs:
   submit-indexnow:
-    if: ${{ secrets.INDEXNOW_KEY != '' }}
     runs-on: ubuntu-latest
     steps:
+      - name: Check IndexNow configuration
+        id: indexnow-config
+        env:
+          INDEXNOW_KEY: ${{ secrets.INDEXNOW_KEY }}
+        run: |
+          if [ -n "$INDEXNOW_KEY" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "IndexNow key not configured, skipping"
+          fi
+
       - name: Submit sitemap to IndexNow
+        if: steps.indexnow-config.outputs.enabled == 'true'
         uses: bojieyang/indexnow-action@v2
         with:
           sitemap-location: ${{ vars.SITEMAP_URL || 'https://mediapath.eu/sitemap-index.xml' }}
           key: ${{ secrets.INDEXNOW_KEY }}
 
   submit-google-indexing:
-    if: ${{ secrets.GCP_SA_KEY != '' && vars.GOOGLE_SITE_URL != '' }}
     runs-on: ubuntu-latest
     steps:
-      - uses: robingenz/action-google-indexing@v1.0.2
+      - name: Check Google Indexing configuration
+        id: google-indexing-config
+        env:
+          GCP_SA_KEY: ${{ secrets.GCP_SA_KEY }}
+          GOOGLE_SITE_URL: ${{ vars.GOOGLE_SITE_URL }}
+        run: |
+          if [ -n "$GCP_SA_KEY" ] && [ -n "$GOOGLE_SITE_URL" ]; then
+            echo "enabled=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "Google Indexing not configured, skipping"
+          fi
+
+      - name: Submit URLs to Google Indexing API
+        if: steps.google-indexing-config.outputs.enabled == 'true'
+        uses: robingenz/action-google-indexing@v1.0.2
         with:
           siteUrl: ${{ vars.GOOGLE_SITE_URL }}
           gcpServiceAccountKey: ${{ secrets.GCP_SA_KEY }}
