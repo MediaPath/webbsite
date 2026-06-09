@@ -1,40 +1,125 @@
 ---
 const year = new Date().getFullYear()
+const contactEmail = 'team.mediapath@gmail.com'
 
 const footerLinks = [
   { text: 'About', url: '/about/' },
   { text: 'Services', url: '/services/' },
+  { text: 'Contact', url: '/contact/' },
+]
+
+const legalLinks = [
+  { text: 'Privacy Policy', url: '/privacy/' },
+  { text: 'Terms of Service', url: '/terms/' },
+  { text: 'Affiliate Disclosure', url: '/affiliate-disclosure/' },
+]
+
+const responsibleGamblingLinks = [
+  {
+    text: 'BeGambleAware',
+    url: 'https://www.begambleaware.org/',
+    ariaLabel: 'BeGambleAware responsible gambling support (opens in new tab)',
+  },
+  {
+    text: 'GamCare',
+    url: 'https://www.gamcare.org.uk/',
+    ariaLabel: 'GamCare responsible gambling support (opens in new tab)',
+  },
+  {
+    text: 'Gamblers Anonymous',
+    url: 'https://www.gamblersanonymous.org/',
+    ariaLabel: 'Gamblers Anonymous support (opens in new tab)',
+  },
+  {
+    text: 'NCPG',
+    url: 'https://www.ncpgambling.org/',
+    ariaLabel: 'National Council on Problem Gambling (opens in new tab)',
+  },
 ]
 ---
 
 <footer class="border-t border-slate-200 bg-white">
-  <div class="mx-auto flex max-w-7xl flex-col gap-6 px-4 py-10 md:flex-row md:items-center md:justify-between">
-    <div class="flex items-center gap-3">
-      <img
-        src="/images/mediapath-logo.webp"
-        alt="MediaPath EU footer logo"
-        width="50"
-        height="40"
-        class="h-10 w-auto rounded-md border border-slate-200 object-cover"
-        loading="lazy"
-        decoding="async"
-      />
+  <div class="mx-auto max-w-7xl px-4 py-10">
+    <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+      <div class="flex items-center gap-3">
+        <img
+          src="/images/mediapath-logo.webp"
+          alt="MediaPath EU footer logo"
+          width="50"
+          height="40"
+          class="h-10 w-auto rounded-md border border-slate-200 object-cover"
+          loading="lazy"
+          decoding="async"
+        />
+        <div>
+          <p class="text-sm font-semibold text-slate-900">MediaPath EU</p>
+          <p class="text-sm text-slate-600">Digital marketing expert for the iGaming industry.</p>
+        </div>
+      </div>
+
+      <nav aria-label="Footer" class="flex flex-wrap gap-4">
+        {
+          footerLinks.map((link) => (
+            <a href={link.url} class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">
+              {link.text}
+            </a>
+          ))
+        }
+      </nav>
+    </div>
+
+    <div class="mt-8 grid gap-8 border-t border-slate-200 pt-8 md:grid-cols-3">
       <div>
-        <p class="text-sm font-semibold text-slate-900">MediaPath EU</p>
-        <p class="text-sm text-slate-600">Digital marketing expert for the iGaming industry.</p>
+        <h2 class="text-xs font-bold uppercase tracking-wide text-slate-500">Legal</h2>
+        <ul class="mt-3 flex flex-col gap-2">
+          {
+            legalLinks.map((link) => (
+              <li>
+                <a href={link.url} class="text-sm text-slate-600 transition-colors hover:text-slate-900">
+                  {link.text}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-xs font-bold uppercase tracking-wide text-slate-500">Responsible Gambling</h2>
+        <ul class="mt-3 flex flex-col gap-2">
+          {
+            responsibleGamblingLinks.map((link) => (
+              <li>
+                <a
+                  href={link.url}
+                  class="text-sm text-slate-600 transition-colors hover:text-slate-900"
+                  rel="noopener noreferrer"
+                  target="_blank"
+                  aria-label={link.ariaLabel}
+                >
+                  {link.text}
+                </a>
+              </li>
+            ))
+          }
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="text-xs font-bold uppercase tracking-wide text-slate-500">Contact</h2>
+        <p class="mt-3 text-sm text-slate-600">
+          <a href={`mailto:${contactEmail}`} class="font-medium text-slate-900 transition-colors hover:text-cyan-700">
+            {contactEmail}
+          </a>
+        </p>
+        <p class="mt-2">
+          <a href="/contact/" class="text-sm font-medium text-cyan-700 transition-colors hover:text-cyan-900">
+            Send a message via contact form
+          </a>
+        </p>
       </div>
     </div>
 
-    <nav aria-label="Footer" class="flex flex-wrap gap-4">
-      {
-        footerLinks.map((link) => (
-          <a href={link.url} class="text-sm font-medium text-slate-600 transition-colors hover:text-slate-900">
-            {link.text}
-          </a>
-        ))
-      }
-    </nav>
-
-    <p class="text-sm text-slate-500">© {year} MediaPath EU</p>
+    <p class="mt-8 border-t border-slate-200 pt-6 text-sm text-slate-500">© {year} MediaPath OÜ. All rights reserved.</p>
   </div>
 </footer>

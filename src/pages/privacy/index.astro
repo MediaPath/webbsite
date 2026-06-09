@@ -1,0 +1,87 @@
+---
+export const prerender = true
+
+import Layout, { type SEOProps } from '~/layouts/Layout.astro'
+import { createWebPageSchema } from '~/utils/schema'
+
+const siteUrl = Astro.site?.toString() ?? 'https://mediapath.eu/'
+const lastUpdated = '2026-06-09'
+
+const seo: SEOProps = {
+  title: 'Privacy Policy | MediaPath EU iGaming Agency',
+  description:
+    'Read how MediaPath OÜ collects, uses, and protects personal data when you visit mediapath.eu or contact our iGaming marketing agency team.',
+  keywords: 'mediapath privacy policy, igaming agency data protection, mediapath ou gdpr, website privacy',
+  canonical: `${siteUrl}privacy/`,
+  image: `${siteUrl}images/mediapath-og.webp`,
+  ldJSON: createWebPageSchema({
+    name: 'Privacy Policy',
+    url: `${siteUrl}privacy/`,
+    description:
+      'Read how MediaPath OÜ collects, uses, and protects personal data when you visit mediapath.eu or contact our iGaming marketing agency team.',
+    image: `${siteUrl}images/mediapath-og.webp`,
+  }),
+}
+---
+
+<Layout seo={seo}>
+  <article class="prose prose-slate mx-auto max-w-3xl px-4 py-16 prose-headings:font-black">
+    <h1>Privacy Policy</h1>
+    <p class="lead">Last updated: {lastUpdated}</p>
+    <p>
+      MediaPath OÜ ("MediaPath EU", "we", "us") operates mediapath.eu and provides iGaming affiliate marketing and media buying services to business clients. This
+      policy explains how we handle personal data when you use our website or contact us.
+    </p>
+
+    <h2>Who We Are</h2>
+    <p>
+      MediaPath OÜ is a private limited company registered in Estonia (registry code 17000688). For privacy enquiries, contact us at
+      <a href="mailto:team.mediapath@gmail.com">team.mediapath@gmail.com</a> or via our <a href="/contact/">contact form</a>.
+    </p>
+
+    <h2>Information We Collect</h2>
+    <ul>
+      <li><strong>Contact details</strong> — name, email address, company name, and message content when you submit our contact form or email us.</li>
+      <li><strong>Technical data</strong> — IP address, browser type, device information, and pages visited, collected through standard server logs and analytics.</li>
+      <li><strong>Business information</strong> — details you share during commercial discussions about affiliate partnerships or marketing services.</li>
+    </ul>
+
+    <h2>How We Use Your Data</h2>
+    <ul>
+      <li>Respond to enquiries and provide our B2B marketing services.</li>
+      <li>Improve website performance, security, and user experience.</li>
+      <li>Comply with legal obligations and protect our legitimate business interests.</li>
+    </ul>
+
+    <h2>Legal Basis for Processing</h2>
+    <p>
+      We process personal data based on consent (contact form submissions), contractual necessity (client relationships), legitimate interests (website security and
+      analytics), and legal obligations where applicable under the EU General Data Protection Regulation (GDPR).
+    </p>
+
+    <h2>Data Sharing</h2>
+    <p>
+      We do not sell personal data. We may share information with trusted service providers (hosting, analytics, email delivery) who process data on our behalf under
+      appropriate agreements, or when required by law.
+    </p>
+
+    <h2>Data Retention</h2>
+    <p>
+      We retain contact and business correspondence for as long as needed to manage enquiries, maintain client relationships, and meet legal or accounting requirements.
+    </p>
+
+    <h2>Your Rights</h2>
+    <p>
+      Under GDPR, you may request access, correction, deletion, restriction, or portability of your personal data, and object to certain processing. You may also lodge a
+      complaint with the Estonian Data Protection Inspectorate.
+    </p>
+
+    <h2>Cookies and Analytics</h2>
+    <p>
+      Our website may use cookies and similar technologies for essential functionality and aggregated analytics. You can control cookies through your browser settings.
+    </p>
+
+    <h2>Changes to This Policy</h2>
+    <p>We may update this policy from time to time. Material changes will be reflected on this page with an updated date.</p>
+  </article>
+</Layout>

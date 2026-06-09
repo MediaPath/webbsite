@@ -1,0 +1,90 @@
+---
+export const prerender = true
+
+import Layout, { type SEOProps } from '~/layouts/Layout.astro'
+import { createWebPageSchema } from '~/utils/schema'
+
+const siteUrl = Astro.site?.toString() ?? 'https://mediapath.eu/'
+const lastUpdated = '2026-06-09'
+
+const seo: SEOProps = {
+  title: 'Terms of Service | MediaPath EU iGaming Agency',
+  description:
+    'Terms governing use of the MediaPath EU website and B2B iGaming marketing services provided by MediaPath OÜ, an Estonia-based affiliate agency.',
+  keywords: 'mediapath terms of service, igaming agency terms, mediapath ou legal, website terms conditions',
+  canonical: `${siteUrl}terms/`,
+  image: `${siteUrl}images/mediapath-og.webp`,
+  ldJSON: createWebPageSchema({
+    name: 'Terms of Service',
+    url: `${siteUrl}terms/`,
+    description:
+      'Terms governing use of the MediaPath EU website and B2B iGaming marketing services provided by MediaPath OÜ, an Estonia-based affiliate agency.',
+    image: `${siteUrl}images/mediapath-og.webp`,
+  }),
+}
+---
+
+<Layout seo={seo}>
+  <article class="prose prose-slate mx-auto max-w-3xl px-4 py-16 prose-headings:font-black">
+    <h1>Terms of Service</h1>
+    <p class="lead">Last updated: {lastUpdated}</p>
+    <p>
+      These Terms of Service ("Terms") govern your access to mediapath.eu and your use of information published by MediaPath OÜ ("MediaPath EU", "we", "us"). By using
+      this website, you agree to these Terms.
+    </p>
+
+    <h2>About MediaPath EU</h2>
+    <p>
+      MediaPath OÜ is an Estonia-based digital marketing agency specializing in iGaming user acquisition, affiliate marketing, and media buying for licensed operators
+      and related B2B partners. Registry code: 17000688.
+    </p>
+
+    <h2>Website Use</h2>
+    <ul>
+      <li>You may browse this website for lawful, informational, and commercial enquiry purposes.</li>
+      <li>You must not attempt to disrupt, scrape, or misuse the site, its content, or underlying systems.</li>
+      <li>Content is provided for general information and does not constitute legal, financial, or gambling advice.</li>
+    </ul>
+
+    <h2>B2B Services</h2>
+    <p>
+      Specific marketing, affiliate, or media buying engagements are governed by separate commercial agreements between MediaPath OÜ and the client. Nothing on this
+      website creates a binding service contract unless confirmed in writing.
+    </p>
+
+    <h2>Intellectual Property</h2>
+    <p>
+      All website content, branding, text, graphics, and layout are owned by or licensed to MediaPath OÜ unless otherwise stated. You may not reproduce or distribute our
+      materials without prior written permission.
+    </p>
+
+    <h2>Third-Party Links</h2>
+    <p>
+      Our website may link to third-party sites, including responsible gambling resources and partner platforms. We are not responsible for the content or practices of
+      external websites.
+    </p>
+
+    <h2>Disclaimer</h2>
+    <p>
+      We provide marketing services to licensed iGaming operators and related businesses. We do not operate consumer gambling products. Website information is provided
+      "as is" without warranties of completeness or fitness for a particular purpose.
+    </p>
+
+    <h2>Limitation of Liability</h2>
+    <p>
+      To the fullest extent permitted by applicable law, MediaPath OÜ shall not be liable for indirect, incidental, or consequential damages arising from use of this
+      website. Nothing in these Terms limits liability that cannot be excluded under Estonian or EU law.
+    </p>
+
+    <h2>Governing Law</h2>
+    <p>
+      These Terms are governed by the laws of Estonia. Disputes shall be subject to the exclusive jurisdiction of the courts of Estonia, unless mandatory consumer
+      protection rules provide otherwise.
+    </p>
+
+    <h2>Contact</h2>
+    <p>
+      Questions about these Terms: <a href="mailto:team.mediapath@gmail.com">team.mediapath@gmail.com</a> or our <a href="/contact/">contact page</a>.
+    </p>
+  </article>
+</Layout>

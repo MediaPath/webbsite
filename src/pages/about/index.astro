@@ -4,18 +4,41 @@ export const prerender = true
 import Layout, { type SEOProps } from '~/layouts/Layout.astro'
 import { createWebPageSchema } from '~/utils/schema'
 
+const operatorTypes = [
+  'Licensed sportsbook operators',
+  'Online casino brands',
+  'Social casino & sweepstakes',
+  'Multi-market gaming groups',
+  'Regional LATAM & African operators',
+  'US state-regulated sportsbooks',
+  'Affiliate acquisition platforms',
+]
+
+const verticals = ['Sportsbook', 'Casino']
+
+const geos = [
+  'United States',
+  'Canada',
+  'United Kingdom',
+  'Argentina',
+  'Colombia',
+  'Peru',
+  'South Africa',
+]
+
 const seo: SEOProps = {
   title: 'About iGaming Growth Consultancy in Europe | MediaPath',
   description:
-    'Learn how MediaPath EU supports iGaming businesses with user acquisition strategy, execution, and performance-focused marketing support across Europe.',
-  keywords: 'about mediapath, igaming consultancy europe, user acquisition experts',
+    'MediaPath OÜ is an Estonia-based iGaming growth agency founded in 2024. We partner with licensed sportsbook and casino operators across global markets.',
+  keywords:
+    'about mediapath, igaming consultancy europe, user acquisition experts, mediapath ou estonia, sportsbook marketing agency',
   canonical: `${Astro.site}about/`,
   image: `${Astro.site}images/mediapath-og.webp`,
   ldJSON: createWebPageSchema({
     name: 'About MediaPath EU',
     url: `${Astro.site}about/`,
     description:
-      'MediaPath EU supports iGaming businesses with user acquisition strategy, execution, and performance-focused marketing support across Europe.',
+      'MediaPath OÜ is an Estonia-based iGaming growth agency founded in 2024. We partner with licensed sportsbook and casino operators across global markets.',
     image: `${Astro.site}images/mediapath-og.webp`,
   }),
 }
@@ -46,6 +69,68 @@ const seo: SEOProps = {
       />
     </div>
 
+    <div class="mt-10 rounded-3xl border border-slate-200 bg-slate-50 p-8 md:p-10">
+      <h2 class="text-2xl font-black text-slate-900 md:text-3xl">Company</h2>
+      <dl class="mt-6 grid gap-5 sm:grid-cols-2">
+        <div>
+          <dt class="text-sm font-semibold uppercase tracking-wide text-slate-500">Legal entity</dt>
+          <dd class="mt-1 text-lg font-semibold text-slate-900">MediaPath OÜ</dd>
+          <dd class="mt-1 text-slate-700">A private limited company incorporated under the laws of Estonia.</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold uppercase tracking-wide text-slate-500">Registry code</dt>
+          <dd class="mt-1 text-lg font-semibold text-slate-900">17000688</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold uppercase tracking-wide text-slate-500">Country</dt>
+          <dd class="mt-1 text-lg font-semibold text-slate-900">Estonia</dd>
+        </div>
+        <div>
+          <dt class="text-sm font-semibold uppercase tracking-wide text-slate-500">Founded</dt>
+          <dd class="mt-1 text-lg font-semibold text-slate-900">2024</dd>
+        </div>
+      </dl>
+    </div>
+
+    <div class="mt-10 rounded-3xl border border-slate-200 bg-white p-8 md:p-10">
+      <h2 class="text-2xl font-black text-slate-900 md:text-3xl">Who We Work With</h2>
+      <p class="mt-4 max-w-3xl text-slate-700">
+        We support established and scaling iGaming operators — from US state-licensed sportsbooks and pan-European gaming groups to LATAM and African market
+        leaders, social casino brands, and affiliate acquisition platforms.
+      </p>
+
+      <h3 class="mt-8 text-lg font-bold text-slate-900">Operator types</h3>
+      <ul class="mt-4 flex flex-wrap gap-2">
+        {
+          operatorTypes.map((type) => (
+            <li class="rounded-full border border-slate-200 bg-slate-50 px-4 py-2 text-sm font-medium text-slate-700">{type}</li>
+          ))
+        }
+      </ul>
+
+      <h3 class="mt-8 text-lg font-bold text-slate-900">Verticals</h3>
+      <ul class="mt-4 flex flex-wrap gap-2">
+        {
+          verticals.map((vertical) => (
+            <li class="rounded-full bg-slate-900 px-4 py-2 text-sm font-semibold text-white">{vertical}</li>
+          ))
+        }
+      </ul>
+
+      <h3 class="mt-8 text-lg font-bold text-slate-900">Markets</h3>
+      <p class="mt-3 text-slate-700">
+        Our team has hands-on experience across regulated and emerging markets worldwide. Recent focus areas include:
+      </p>
+      <ul class="mt-4 flex flex-wrap gap-2">
+        {
+          geos.map((geo) => (
+            <li class="rounded-full border border-cyan-200 bg-cyan-50 px-4 py-2 text-sm font-medium text-cyan-900">{geo}</li>
+          ))
+        }
+      </ul>
+      <p class="mt-4 text-sm text-slate-600">We are not limited to these geographies — we scale campaigns wherever your licence and growth targets take you.</p>
+    </div>
+
     <div class="mt-10 rounded-3xl bg-slate-900 p-8 text-white md:p-10">
       <h2 class="text-2xl font-black md:text-3xl">What Makes MediaPath Different</h2>
       <p class="mt-4 text-slate-200">
@@ -56,19 +141,19 @@ const seo: SEOProps = {
 
     <div class="mt-10 grid gap-6 md:grid-cols-2">
       <article class="rounded-2xl border border-slate-200 bg-white p-6">
-        <h2 class="text-xl font-bold text-slate-900">Mission</h2>
-        <p class="mt-3 text-slate-700">Deliver measurable and sustainable user acquisition outcomes for iGaming companies operating in competitive markets.</p>
-      </article>
-      <article class="rounded-2xl border border-slate-200 bg-white p-6">
         <h2 class="text-xl font-bold text-slate-900">Core Expertise</h2>
         <p class="mt-3 text-slate-700">Affiliate marketing, digital media buying, and acquisition technology built around performance and long-term growth.</p>
+      </article>
+      <article class="rounded-2xl border border-slate-200 bg-white p-6">
+        <h2 class="text-xl font-bold text-slate-900">Mission</h2>
+        <p class="mt-3 text-slate-700">Deliver measurable and sustainable user acquisition outcomes for iGaming companies operating in competitive markets.</p>
       </article>
     </div>
 
     <div class="mt-10 rounded-3xl border border-slate-200 bg-white p-8 text-center">
       <h2 class="text-2xl font-black text-slate-900 md:text-3xl">Start your affiliate campaign with MediaPath</h2>
       <p class="mt-3 text-slate-700">Ready to scale traffic and user acquisition? Build your next growth sprint with a team specialized in iGaming.</p>
-      <a href="mailto:team.mediapath@gmail.com" class="mt-6 inline-flex rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-950">Work with us</a>
+      <a href="/contact/" class="mt-6 inline-flex rounded-full bg-slate-900 px-6 py-3 text-sm font-semibold text-white transition hover:bg-slate-950">Work with us</a>
     </div>
   </section>
 </Layout>

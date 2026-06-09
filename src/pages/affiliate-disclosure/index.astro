@@ -1,0 +1,76 @@
+---
+export const prerender = true
+
+import Layout, { type SEOProps } from '~/layouts/Layout.astro'
+import { createWebPageSchema } from '~/utils/schema'
+
+const siteUrl = Astro.site?.toString() ?? 'https://mediapath.eu/'
+const lastUpdated = '2026-06-09'
+
+const seo: SEOProps = {
+  title: 'Affiliate Disclosure | MediaPath EU iGaming',
+  description:
+    'MediaPath EU discloses how we broker affiliate relationships, earn commissions, and work with licensed iGaming operators as a B2B marketing agency.',
+  keywords: 'affiliate disclosure mediapath, igaming affiliate agency, commission disclosure, mediapath affiliate marketing',
+  canonical: `${siteUrl}affiliate-disclosure/`,
+  image: `${siteUrl}images/mediapath-og.webp`,
+  ldJSON: createWebPageSchema({
+    name: 'Affiliate Disclosure',
+    url: `${siteUrl}affiliate-disclosure/`,
+    description:
+      'MediaPath EU discloses how we broker affiliate relationships, earn commissions, and work with licensed iGaming operators as a B2B marketing agency.',
+    image: `${siteUrl}images/mediapath-og.webp`,
+  }),
+}
+---
+
+<Layout seo={seo}>
+  <article class="prose prose-slate mx-auto max-w-3xl px-4 py-16 prose-headings:font-black">
+    <h1>Affiliate Disclosure</h1>
+    <p class="lead">Last updated: {lastUpdated}</p>
+    <p>
+      MediaPath OÜ ("MediaPath EU") is a B2B iGaming marketing agency. Even though we primarily serve operators and brands — not end consumers — we broker, manage, and
+      optimize affiliate relationships. This page explains those commercial arrangements transparently.
+    </p>
+
+    <h2>What We Do</h2>
+    <p>
+      MediaPath EU connects licensed sportsbook, casino, and related iGaming brands with publishers, affiliates, and paid media channels. Our work may include campaign
+      strategy, partner recruitment, tracking setup, budget management, and performance optimization.
+    </p>
+
+    <h2>How We May Be Compensated</h2>
+    <ul>
+      <li><strong>Agency fees</strong> — fixed or recurring fees paid by operator clients for marketing services.</li>
+      <li><strong>Performance commissions</strong> — revenue share, CPA, CPL, or hybrid models tied to qualified player activity referred through campaigns we manage.</li>
+      <li><strong>Partner introductions</strong> — compensation when we broker relationships between operators and third-party affiliates or traffic sources.</li>
+      <li><strong>Media buying margins</strong> — fees or markups associated with purchasing advertising inventory on behalf of clients.</li>
+    </ul>
+
+    <h2>Commercial Relationships</h2>
+    <p>
+      We may have active or past commercial relationships with iGaming operators, affiliate networks, ad platforms, and analytics providers. Specific terms are defined
+      in contracts between MediaPath OÜ and each party. We do not claim independence from the commercial interests of our clients when providing paid marketing services.
+    </p>
+
+    <h2>Editorial and Promotional Content</h2>
+    <p>
+      Articles, case studies, or promotional materials on mediapath.eu may reference partners, platforms, or marketing approaches we use professionally. Such content is
+      intended for industry education and business development, not consumer gambling promotion.
+    </p>
+
+    <h2>Compliance Commitment</h2>
+    <p>
+      We work with licensed operators and support responsible gambling standards. We encourage partners and audiences to use resources such as
+      <a href="https://www.begambleaware.org/" rel="noopener noreferrer" target="_blank" aria-label="BeGambleAware (opens in new tab)">BeGambleAware</a> and
+      <a href="https://www.gamcare.org.uk/" rel="noopener noreferrer" target="_blank" aria-label="GamCare (opens in new tab)">GamCare</a> where gambling-related harm
+      may occur.
+    </p>
+
+    <h2>Questions</h2>
+    <p>
+      For disclosure or partnership enquiries, contact <a href="mailto:team.mediapath@gmail.com">team.mediapath@gmail.com</a> or use our
+      <a href="/contact/">contact form</a>.
+    </p>
+  </article>
+</Layout>
