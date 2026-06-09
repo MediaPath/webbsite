@@ -14,28 +14,6 @@ const legalLinks = [
   { text: 'Affiliate Disclosure', url: '/affiliate-disclosure/' },
 ]
 
-const responsibleGamblingLinks = [
-  {
-    text: 'BeGambleAware',
-    url: 'https://www.begambleaware.org/',
-    ariaLabel: 'BeGambleAware responsible gambling support (opens in new tab)',
-  },
-  {
-    text: 'GamCare',
-    url: 'https://www.gamcare.org.uk/',
-    ariaLabel: 'GamCare responsible gambling support (opens in new tab)',
-  },
-  {
-    text: 'Gamblers Anonymous',
-    url: 'https://www.gamblersanonymous.org/',
-    ariaLabel: 'Gamblers Anonymous support (opens in new tab)',
-  },
-  {
-    text: 'NCPG',
-    url: 'https://www.ncpgambling.org/',
-    ariaLabel: 'National Council on Problem Gambling (opens in new tab)',
-  },
-]
 ---
 
 <footer class="border-t border-slate-200 bg-white">
@@ -68,7 +46,7 @@ const responsibleGamblingLinks = [
       </nav>
     </div>
 
-    <div class="mt-8 grid gap-8 border-t border-slate-200 pt-8 md:grid-cols-3">
+    <div class="mt-8 grid gap-8 border-t border-slate-200 pt-8 md:grid-cols-2">
       <div>
         <h2 class="text-xs font-bold uppercase tracking-wide text-slate-500">Legal</h2>
         <ul class="mt-3 flex flex-col gap-2">
@@ -76,27 +54,6 @@ const responsibleGamblingLinks = [
             legalLinks.map((link) => (
               <li>
                 <a href={link.url} class="text-sm text-slate-600 transition-colors hover:text-slate-900">
-                  {link.text}
-                </a>
-              </li>
-            ))
-          }
-        </ul>
-      </div>
-
-      <div>
-        <h2 class="text-xs font-bold uppercase tracking-wide text-slate-500">Responsible Gambling</h2>
-        <ul class="mt-3 flex flex-col gap-2">
-          {
-            responsibleGamblingLinks.map((link) => (
-              <li>
-                <a
-                  href={link.url}
-                  class="text-sm text-slate-600 transition-colors hover:text-slate-900"
-                  rel="noopener noreferrer"
-                  target="_blank"
-                  aria-label={link.ariaLabel}
-                >
                   {link.text}
                 </a>
               </li>
