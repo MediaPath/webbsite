@@ -18,62 +18,36 @@ This document maps industry patterns from successful gaming affiliate and iGamin
 
 ### Existing pages
 
-| Route | File | Nav linked? |
-|-------|------|-------------|
-| `/` | `src/pages/index.astro` | Yes (logo) |
-| `/about/` | `src/pages/about/index.astro` | Yes |
-| `/services/` | `src/pages/services/index.astro` | Yes |
-| `/blog/` | `src/pages/blog/index.astro` | No (homepage CTA only) |
-| `/blog/[slug]/` | `src/pages/blog/[slug].astro` | — |
-| `/articles/` | `src/pages/articles/index.astro` | No |
-| `/articles/[slug]/` | `src/pages/articles/[slug].astro` | — |
-| 404 | `src/pages/404.astro` | — |
+| Route               | File                              | Nav linked?            |
+| ------------------- | --------------------------------- | ---------------------- |
+| `/`                 | `src/pages/index.astro`           | Yes (logo)             |
+| `/about/`           | `src/pages/about/index.astro`     | Yes                    |
+| `/services/`        | `src/pages/services/index.astro`  | Yes                    |
+| `/blog/`            | `src/pages/blog/index.astro`      | No (homepage CTA only) |
+| `/blog/[slug]/`     | `src/pages/blog/[slug].astro`     | —                      |
+| `/articles/`        | `src/pages/articles/index.astro`  | No                     |
+| `/articles/[slug]/` | `src/pages/articles/[slug].astro` | —                      |
+| 404                 | `src/pages/404.astro`             | —                      |
 
 **Missing:** reviews, contact, privacy, terms, team, case studies, methodology pages.
 
 ### Existing trust signals
 
-| Signal | Present? | Notes |
-|--------|----------|-------|
-| Client testimonials / reviews | No | — |
-| Case studies / client logos | No | — |
-| Named team / author bios | No | Schema supports author fields; not rendered in UI |
-| Methodology / process | Partial | One blog post on CAC methodology |
-| Mission / expertise claims | Yes | About, homepage — unsubstantiated |
-| Organization schema | Yes | `src/utils/schema.ts` |
-| Contact email | Yes | `team.mediapath@gmail.com` on About/Services |
-| Legal pages (privacy, terms, disclaimer) | No | — |
-| FAQ schema | Defined, unused | `createFAQPageSchema` in `schema.ts` |
-| Blog/Articles in nav | No | Low discoverability |
+| Signal                                   | Present?        | Notes                                             |
+| ---------------------------------------- | --------------- | ------------------------------------------------- |
+| Client testimonials / reviews            | No              | —                                                 |
+| Case studies / client logos              | No              | —                                                 |
+| Named team / author bios                 | No              | Schema supports author fields; not rendered in UI |
+| Methodology / process                    | Partial         | One blog post on CAC methodology                  |
+| Mission / expertise claims               | Yes             | About, homepage — unsubstantiated                 |
+| Organization schema                      | Yes             | `src/utils/schema.ts`                             |
+| Contact email                            | Yes             | `team.mediapath@gmail.com` on About/Services      |
+| Legal pages (privacy, terms, disclaimer) | No              | —                                                 |
+| FAQ schema                               | Defined, unused | `createFAQPageSchema` in `schema.ts`              |
+| Blog/Articles in nav                     | No              | Low discoverability                               |
 
-### Content depth
 
-- **Homepage:** Hero, 3 strength cards, services summary, “Why Choose MediaPath” bullets, CTA. No stats, logos, or named clients.
-- **About:** Short agency intro, mission/expertise cards, email CTA. No team photos, bios, history, or credentials.
-- **Services:** 4 service cards with short blurbs. No pricing, process, deliverables, or case examples.
-- **Blog:** 1 published post (`lower-igaming-cac-affiliate-media-mix.md`) — strongest methodology content on the site.
-- **Articles:** Empty collection.
-
----
-
-## What Works Elsewhere (Industry Patterns)
-
-Patterns observed on successful player-facing affiliates and B2B iGaming agencies, adapted for MediaPath EU.
-
-| Pattern | Reference examples | Why it works |
-|---------|-------------------|--------------|
-| **Editorial / methodology page** | [24Spins Editorial Policy](https://24spins.com/editorial-policy/), [PlayWithStakes Editorial Policy](https://playwithstakes.com/editorial-policy/) | Shows how partners are evaluated, traffic is scored, and editorial independence is maintained |
-| **Named authors + bios** | Top casino review sites; BISAM E-E-A-T guidance | Google treats iGaming as YMYL — anonymous content signals low trust |
-| **“Last updated” + changelog** | PlayWithStakes; Aff Rate 2026 playbook | Proves content isn’t stale; critical for bonus/CAC/compliance advice |
-| **Responsible gambling stance** | Compliant affiliates; NY Gaming Commission advertising rules | Even B2B sites benefit — shows regulated-market understanding |
-| **Case studies (Problem → Solution → Result)** | Absolute Digital (Ladbrokes, 888), Uberman Agency | Named or anonymized outcomes beat generic “proven track record” claims |
-| **Team with operator/affiliate background** | [Uberman Agency](https://uberman.agency/) | B2B buyers want people who’ve done the work, not only managed it |
-| **Process on service pages** | Plug & Bet; professional services best practice | “What you get in week 1–4” reduces perceived risk |
-| **FAQ with real friction points** | iGB Affiliate schema guidance | KYC delays, geo restrictions, payout speed — not filler |
-| **Legal / disclosure pages** | Every serious affiliate | Privacy, terms, affiliate disclosure — footer minimum |
-| **Thought leadership hub** | MediaPath blog CAC post (good start) | One strong article isn’t enough; operators need a content footprint |
-
-### E-E-A-T priorities for iGaming (Google YMYL)
+## \### E-E-A-T priorities for iGaming (Google YMYL)
 
 From industry guidance (Exquisite Media, BISAM, Aff Rate):
 
@@ -199,13 +173,13 @@ Even as a B2B agency, demonstrating compliance awareness builds operator confide
 
 **Per service** (Affiliate Marketing, Media Buying, Acquisition Tools, SaaS/B2B):
 
-| Block | Content |
-|-------|---------|
-| Deliverables | Bullet list of tangible outputs |
-| Timeline | 4-week onboarding (week-by-week) |
-| Reporting | KPIs reported weekly/monthly |
-| FAQ | 3–5 real questions per service |
-| Mini case | Link to relevant case study |
+| Block        | Content                          |
+| ------------ | -------------------------------- |
+| Deliverables | Bullet list of tangible outputs  |
+| Timeline     | 4-week onboarding (week-by-week) |
+| Reporting    | KPIs reported weekly/monthly     |
+| FAQ          | 3–5 real questions per service   |
+| Mini case    | Link to relevant case study      |
 
 **Sample FAQs:**
 - “Do you work on CPA, rev share, or hybrid?”
@@ -321,19 +295,19 @@ Shows operational depth without naming clients.
 
 ## Page-by-Page Implementation Map
 
-| Page | Add / change |
-|------|----------------|
-| **Home** | Proof metrics, process steps, case snippet, client logos/quotes, latest insights |
-| **About** | Team bios, company facts, who we work with, compliance stance link |
-| **Services** | Process, deliverables, FAQs, mini case per service |
-| **Blog / Articles** | Author UI, update dates, more depth, nav links |
-| **Case Studies** *(new)* | 2–3 anonymized wins with Problem → Solution → Result |
-| **Methodology** *(new)* | Vetting, quality gates, compliance, what we won’t do |
-| **Contact** *(new)* | Form, response time, schema |
-| **Legal** *(new)* | Privacy, Terms, Affiliate Disclosure |
-| **FAQ** *(new)* | Real operator questions + FAQPage schema |
-| **Compliance** *(new)* | RG links, geo policy, partner criteria |
-| **Footer** | Legal links, RG resources, Blog/Articles nav, contact |
+| Page                     | Add / change                                                                     |
+| ------------------------ | -------------------------------------------------------------------------------- |
+| **Home**                 | Proof metrics, process steps, case snippet, client logos/quotes, latest insights |
+| **About**                | Team bios, company facts, who we work with, compliance stance link               |
+| **Services**             | Process, deliverables, FAQs, mini case per service                               |
+| **Blog / Articles**      | Author UI, update dates, more depth, nav links                                   |
+| **Case Studies** *(new)* | 2–3 anonymized wins with Problem → Solution → Result                             |
+| **Methodology** *(new)*  | Vetting, quality gates, compliance, what we won’t do                             |
+| **Contact** *(new)*      | Form, response time, schema                                                      |
+| **Legal** *(new)*        | Privacy, Terms, Affiliate Disclosure                                             |
+| **FAQ** *(new)*          | Real operator questions + FAQPage schema                                         |
+| **Compliance** *(new)*   | RG links, geo policy, partner criteria                                           |
+| **Footer**               | Legal links, RG resources, Blog/Articles nav, contact                            |
 
 ---
 
@@ -341,23 +315,23 @@ Shows operational depth without naming clients.
 
 MediaPath EU is a **B2B agency**, not a casino review site. Avoid:
 
-| Don’t implement | Reason |
-|-----------------|--------|
+| Don’t implement                            | Reason                                               |
+| ------------------------------------------ | ---------------------------------------------------- |
 | Star ratings / self-assigned Review schema | Manual action risk if not a genuine review publisher |
-| “Best casino” listicles | Wrong business model unless pivoting to publisher |
-| Bonus comparison tables as primary content | Operators need process proof, not player promos |
-| Generic FAQ filler | Hurts trust and schema quality |
-| Stock team photos | Use real people or skip photos until available |
+| “Best casino” listicles                    | Wrong business model unless pivoting to publisher    |
+| Bonus comparison tables as primary content | Operators need process proof, not player promos      |
+| Generic FAQ filler                         | Hurts trust and schema quality                       |
+| Stock team photos                          | Use real people or skip photos until available       |
 
 ---
 
 ## Fastest Wins (estimated 1–2 days each)
 
-1. **Team section on About** — real names, roles, bios  
-2. **Footer legal + RG links** — Privacy, Terms, Disclosure stubs  
-3. **Author bylines on blog** — wire up existing schema fields  
-4. **Homepage “How we work”** — 4-step block  
-5. **One anonymized case study** — single page proof point  
+1. **Team section on About** — real names, roles, bios
+2. **Footer legal + RG links** — Privacy, Terms, Disclosure stubs
+3. **Author bylines on blog** — wire up existing schema fields
+4. **Homepage “How we work”** — 4-step block
+5. **One anonymized case study** — single page proof point
 
 ---
 
@@ -365,56 +339,56 @@ MediaPath EU is a **B2B agency**, not a casino review site. Avoid:
 
 Before publishing any new page:
 
-- [ ] Title 50–60 characters with primary keyword  
-- [ ] Meta description 150–160 characters  
-- [ ] Canonical URL with trailing slash  
-- [ ] Complete Open Graph + Twitter card tags  
-- [ ] JSON-LD appropriate to page type  
-- [ ] One H1; no skipped heading levels  
-- [ ] All internal links use trailing slashes  
-- [ ] Images WebP with descriptive alt text  
-- [ ] External links use `rel="noopener noreferrer"`  
-- [ ] Run `bun run build` and `bun run seo:check`  
+- [ ] Title 50–60 characters with primary keyword
+- [ ] Meta description 150–160 characters
+- [ ] Canonical URL with trailing slash
+- [ ] Complete Open Graph + Twitter card tags
+- [ ] JSON-LD appropriate to page type
+- [ ] One H1; no skipped heading levels
+- [ ] All internal links use trailing slashes
+- [ ] Images WebP with descriptive alt text
+- [ ] External links use `rel="noopener noreferrer"`
+- [ ] Run `bun run build` and `bun run seo:check`
 
 ---
 
 ## Suggested Rollout Phases
 
 ### Phase 1 (Week 1–2)
-- About team section  
-- Footer legal pages (Privacy, Terms, Disclosure)  
-- Homepage process + proof section  
-- Blog author bylines  
+- About team section
+- Footer legal pages (Privacy, Terms, Disclosure)
+- Homepage process + proof section
+- Blog author bylines
 
 ### Phase 2 (Week 3–4)
-- `/methodology/` page  
-- `/contact/` page  
-- Services FAQs and deliverables  
-- Nav: Blog + Articles in header/footer  
+- `/methodology/` page
+- `/contact/` page
+- Services FAQs and deliverables
+- Nav: Blog + Articles in header/footer
 
 ### Phase 3 (Month 2)
-- `/case-studies/` with 2–3 cases  
-- `/faq/` with schema  
-- 2 new blog or article pieces  
-- `/compliance/` page  
+- `/case-studies/` with 2–3 cases
+- `/faq/` with schema
+- 2 new blog or article pieces
+- `/compliance/` page
 
 ### Phase 4 (Ongoing)
-- One case study or article per month  
-- Quarterly content refresh dates on key pages  
-- Partner/ecosystem page when integrations are confirmed  
+- One case study or article per month
+- Quarterly content refresh dates on key pages
+- Partner/ecosystem page when integrations are confirmed
 
 ---
 
 ## References & Further Reading
 
-- [E-E-A-T for Gambling Sites — Exquisite Media](https://weareexquisite.co.uk/e-e-a-t-for-gambling-sites-building-trust-with-google/)
-- [Affiliate Compliance 2026 — Aff Rate](https://affrate.com/guides-playbooks/compliance-rg/affiliate-compliance-2026-igaming/)
-- [Why Trust Is the Most Important Metric for iGaming Affiliates — First Look Games](https://firstlookgames.com/flg/why-trust-is-the-most-important-metric-for-igaming-affiliates/)
-- [How schema can make good affiliate sites shine — iGB Affiliate](https://www.igbaffiliate.com/en/articles/seo/how-schema-can-make-good-affiliate-sites-shine-in-ai-search/)
-- [24Spins Editorial Policy](https://24spins.com/editorial-policy/)
-- [PlayWithStakes Editorial Policy](https://playwithstakes.com/editorial-policy/)
-- [Uberman Agency — B2B iGaming trust example](https://uberman.agency/)
-- [How to Build Trust as a Casino Affiliate — Lucky Buddha Affiliates](https://luckybuddhaaffiliates.com/affiliate-marketing-guides/how-to-build-trust-with-your-audience-as-a-casino-affiliate/)
+- [E-E-A-T for Gambling Sites — Exquisite Media][1]
+- [Affiliate Compliance 2026 — Aff Rate][2]
+- [Why Trust Is the Most Important Metric for iGaming Affiliates — First Look Games][3]
+- [How schema can make good affiliate sites shine — iGB Affiliate][4]
+- [24Spins Editorial Policy][5]
+- [PlayWithStakes Editorial Policy][6]
+- [Uberman Agency — B2B iGaming trust example][7]
+- [How to Build Trust as a Casino Affiliate — Lucky Buddha Affiliates][8]
 
 ---
 
@@ -438,3 +412,12 @@ Before publishing any new page:
 ---
 
 *End of document*
+
+[1]:	https://weareexquisite.co.uk/e-e-a-t-for-gambling-sites-building-trust-with-google/
+[2]:	https://affrate.com/guides-playbooks/compliance-rg/affiliate-compliance-2026-igaming/
+[3]:	https://firstlookgames.com/flg/why-trust-is-the-most-important-metric-for-igaming-affiliates/
+[4]:	https://www.igbaffiliate.com/en/articles/seo/how-schema-can-make-good-affiliate-sites-shine-in-ai-search/
+[5]:	https://24spins.com/editorial-policy/
+[6]:	https://playwithstakes.com/editorial-policy/
+[7]:	https://uberman.agency/
+[8]:	https://luckybuddhaaffiliates.com/affiliate-marketing-guides/how-to-build-trust-with-your-audience-as-a-casino-affiliate/
