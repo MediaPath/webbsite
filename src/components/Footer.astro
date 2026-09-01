@@ -1,6 +1,5 @@
 ---
 const year = new Date().getFullYear()
-const contactEmail = 'team.mediapath@gmail.com'
 
 const footerLinks = [
   { text: 'About', url: '/about/' },
@@ -64,12 +63,7 @@ const legalLinks = [
 
       <div>
         <h2 class="text-xs font-bold uppercase tracking-wide text-slate-500">Contact</h2>
-        <p class="mt-3 text-sm text-slate-600">
-          <a href={`mailto:${contactEmail}`} class="font-medium text-slate-900 transition-colors hover:text-cyan-700">
-            {contactEmail}
-          </a>
-        </p>
-        <p class="mt-2">
+        <p class="mt-3">
           <a href="/contact/" class="text-sm font-medium text-cyan-700 transition-colors hover:text-cyan-900">
             Send a message via contact form
           </a>

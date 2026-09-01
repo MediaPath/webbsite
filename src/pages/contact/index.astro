@@ -4,22 +4,21 @@ export const prerender = true
 import Layout, { type SEOProps } from '~/layouts/Layout.astro'
 import { createWebPageSchema } from '~/utils/schema'
 
-const contactEmail = 'team.mediapath@gmail.com'
 const siteUrl = Astro.site?.toString() ?? 'https://mediapath.eu/'
 const sent = Astro.url.searchParams.get('sent') === '1'
 
 const seo: SEOProps = {
-  title: 'Contact iGaming Marketing Agency | MediaPath EU',
+  title: 'Contact iGaming Marketing Agency Team | MediaPath EU',
   description:
-    'Contact MediaPath EU for iGaming affiliate marketing and media buying support. Email our team or send a message through our contact form.',
-  keywords: 'contact mediapath, igaming marketing agency contact, mediapath eu email, affiliate marketing enquiry',
+    'Contact MediaPath EU for iGaming affiliate marketing and media buying support. Send a message via our contact form and the growth team will reply soon.',
+  keywords: 'contact mediapath, igaming marketing agency contact, mediapath contact form, affiliate marketing enquiry',
   canonical: `${siteUrl}contact/`,
   image: `${siteUrl}images/mediapath-og.webp`,
   ldJSON: createWebPageSchema({
     name: 'Contact MediaPath EU',
     url: `${siteUrl}contact/`,
     description:
-      'Contact MediaPath EU for iGaming affiliate marketing and media buying support. Email our team or send a message through our contact form.',
+      'Contact MediaPath EU for iGaming affiliate marketing and media buying support. Send a message via our contact form and the growth team will reply soon.',
     image: `${siteUrl}images/mediapath-og.webp`,
   }),
 }
@@ -40,16 +39,6 @@ const seo: SEOProps = {
       )
     }
 
-    <div class="mt-10 rounded-3xl border border-slate-200 bg-slate-50 p-8">
-      <h2 class="text-xl font-bold text-slate-900">Email</h2>
-      <p class="mt-3 text-slate-700">
-        <a href={`mailto:${contactEmail}`} class="font-semibold text-cyan-700 transition-colors hover:text-cyan-900">
-          {contactEmail}
-        </a>
-      </p>
-      <p class="mt-2 text-sm text-slate-600">MediaPath OÜ · Registry code 17000688 · Estonia</p>
-    </div>
-
     <form
       class="mt-10 rounded-3xl border border-slate-200 bg-white p-8"
       action="https://formsubmit.co/team.mediapath@gmail.com"
@@ -57,7 +46,7 @@ const seo: SEOProps = {
       aria-label="Contact MediaPath EU"
     >
       <h2 class="text-xl font-bold text-slate-900">Send a message</h2>
-      <p class="mt-2 text-sm text-slate-600">Prefer a form? Fill in the details below and we will get back to you.</p>
+      <p class="mt-2 text-sm text-slate-600">Fill in the details below and we will get back to you.</p>
 
       <input type="hidden" name="_subject" value="MediaPath EU website contact form" />
       <input type="hidden" name="_next" value={`${siteUrl}contact/?sent=1`} />
